@@ -34,4 +34,11 @@ app.get('/comments/:id', (req, res) => {
 // create a new comment
 app.post('/comments', (req, res) => {
   const comment = {
-    id: comments.length + 1,
+      id: comments.length + 1,
+      author: req.body.author,
+      body: req.body.body
+    };
+    comments.push(comment);
+    res.json(comment);
+  }
+);
